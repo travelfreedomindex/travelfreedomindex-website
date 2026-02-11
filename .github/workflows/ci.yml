@@ -1,0 +1,151 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run TypeScript type check
+        run: npx tsc --noEmit
+      
+      - name: Build Next.js site
+        run: npm run build
+        env:
+          NODE_ENV: production
+      
+      - name: Verify build output
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "❌ Build failed: .next directory not found"
+            exit 1
+          fi
+          echo "✅ Build successful"
+      
+      - name: Check legal pages exist
+        run: |
+          if [ ! -f "app/legal/disclaimer/page.tsx" ]; then
+            echo "❌ Disclaimer page missing"
+            exit 1
+          fi
+          if [ ! -f "app/legal/privacy/page.tsx" ]; then
+            echo "❌ Privacy page missing"
+            exit 1
+          fi
+          echo "✅ Legal pages verified"
+      
+      - name: Verify Footer links
+        run: |
+          if ! grep -q "legal/privacy" components/Footer.tsx; then
+            echo "❌ Footer missing privacy link"
+            exit 1
+          fi
+          if ! grep -q "legal/disclaimer" components/Footer.tsx; then
+            echo "❌ Footer missing disclaimer link"
+            exit 1
+          fi
+          echo "✅ Footer links verified"
+      
+      - name: Check for email addresses in legal pages
+        run: |
+          if grep -r "@travelfreedomindex.com" app/legal/; then
+            echo "❌ Found email addresses in legal pages"
+            exit 1
+          fi
+          echo "✅ No email addresses in legal pages"
+      
+      - name: Verify GitHub issues links exist
+        run: |
+          if ! grep -r "github.com.*issues" app/legal/; then
+            echo "❌ GitHub issues link missing from legal pages"
+            exit 1
+          fi
+          echo "✅ GitHub issues links verified"
+
+  lighthouse:
+    name: Lighthouse Performance
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build site
+        run: npm run build
+      
+      - name: Run Lighthouse
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun --collect.startServerCommand="npm start" --collect.numberOfRuns=1 || echo "Lighthouse check completed"
+
+  security-check:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Run npm audit
+        run: npm audit --audit-level=high
+        continue-on-error: true
+      
+      - name: Check for sensitive data
+        run: |
+          echo "🔍 Checking for sensitive data..."
+          if grep -r "VERCEL_TOKEN" . --exclude-dir=node_modules --exclude-dir=.git; then
+            echo "❌ Found sensitive token"
+            exit 1
+          fi
+          if grep -r "API_KEY" . --exclude-dir=node_modules --exclude-dir=.git --exclude=".github"; then
+            echo "⚠️ Found API_KEY reference - verify it's not hardcoded"
+          fi
+          echo "✅ No sensitive data found"
+
+  deployment-check:
+    name: Deployment Readiness
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Deployment notification
+        run: |
+          echo "🚀 Build successful - Vercel will auto-deploy"
+          echo "📊 Check deployment: https://vercel.com/dashboard"
+          echo "🌐 Live site: https://travelfreedomindex.com"

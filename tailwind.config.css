@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@layer theme {
+  :root {
+    /* Enable dark mode via class */
+    color-scheme: light dark;
+  }
+}
+
+@layer base {
+  .dark {
+    color-scheme: dark;
+  }
+}

@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import ConsentManager from '@/components/ConsentManager';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -62,18 +63,33 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* AdSense Script */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2341434356475761"
           crossOrigin="anonymous"
         />
+        
+        {/* 
+        TODO: Add Google CMP scripts here after generating from AdSense dashboard:
+        1. Go to https://www.google.com/adsense → Privacy & messaging
+        2. Create "European regulations" message with 3 choices
+        3. Copy the generated CMP script tags below
+        
+        Example structure (replace with actual generated code):
+        <script type="text/javascript">
+          window.__cmp = ...
+        </script>
+        */}
       </head>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <ConsentManager>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </ThemeProvider>
+        </ConsentManager>
         <GoogleAnalytics gaId="G-EC5PK0C57H" />
       </body>
     </html>

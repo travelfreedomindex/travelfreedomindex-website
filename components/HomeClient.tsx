@@ -27,9 +27,9 @@ interface HomeClientProps {
 
 export function HomeClient({ topPRI, topLevel1, allCountries }: HomeClientProps) {
   // Calculate dynamic statistics from actual data
-  const totalPassports = 207; // Total passports analyzed
-  const totalCountries = 201; // Total destination countries
-  const totalRelationships = totalPassports * totalCountries; // 207 × 201 = 41,607
+  const totalPassports = 201; // Total passports analyzed
+  const totalCountries = 200; // Total destination countries (excluding self)
+  const totalRelationships = totalPassports * totalCountries; // 201 × 200 = 40,200
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 transition-colors duration-300">
@@ -53,6 +53,32 @@ export function HomeClient({ topPRI, topLevel1, allCountries }: HomeClientProps)
           <p className="text-xs text-slate-500 mb-6">
             Click on country flags to explore rankings
           </p>
+        </motion.div>
+      </section>
+
+      {/* Recent Improvements Banner */}
+      <section className="container mx-auto px-4 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-4 shadow-lg"
+        >
+          <div className="flex items-start gap-3">
+            <div className="flex-shrink-0 mt-0.5">
+              <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                <span className="text-lg">✨</span>
+              </div>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-sm font-semibold text-green-900 mb-1">Recent Improvements (Feb 12, 2026)</h3>
+              <p className="text-xs text-green-800 leading-relaxed">
+                <span className="font-medium">🐛 Parser Bug Fix:</span> Corrected visa requirement classification accuracy. 
+                <span className="font-medium">🎯 Enhanced Validation:</span> All data now validated for maximum accuracy. 
+                <Link href="/methodology#recent-improvements" className="text-green-700 underline hover:text-green-900">Learn more →</Link>
+              </p>
+            </div>
+          </div>
         </motion.div>
       </section>
 

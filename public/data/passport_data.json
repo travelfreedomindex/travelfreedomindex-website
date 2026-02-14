@@ -107148,10 +107148,10 @@
       "source": "timatic_api"
     },
     "HK": {
-      "requirement_type": "visa_free",
+      "requirement_type": "visa_required",
       "duration_days": 7,
-      "notes": "Passengers must have a valid visa issued by Hong Kong (SAR China).Passengers with a Hong Kong (SAR China) passport do not need a visa.Passengers with a Re-entry Permit issued by Hong Kong (SAR China)",
-      "confidence": 0.95,
+      "notes": "[HARDCODED FIX] China \u2192 Hong Kong (requires Exit-Entry Permit). Passengers must have a valid visa issued by Hong Kong (SAR China).Passengers with a Hong Kong (SAR China) passport do not need a visa.Passengers with a Re-entry Permit issued by Hong Kong (SAR China)",
+      "confidence": 0.99,
       "source": "timatic_api"
     },
     "PH": {
@@ -107400,10 +107400,10 @@
       "source": "timatic_api"
     },
     "MO": {
-      "requirement_type": "visa_free",
+      "requirement_type": "visa_required",
       "duration_days": 7,
-      "notes": "Passengers must have a valid visa issued by Macao (SAR China).Passengers with a Macao (SAR China) passport do not need a visa.Nationals of China (People's Rep.) do not need a visa for a maximum of 7 d",
-      "confidence": 0.95,
+      "notes": "[HARDCODED FIX] China \u2192 Macau (requires Exit-Entry Permit). Passengers must have a valid visa issued by Macao (SAR China).Passengers with a Macao (SAR China) passport do not need a visa.Nationals of China (People's Rep.) do not need a visa for a maximum of 7 d",
+      "confidence": 0.99,
       "source": "timatic_api"
     },
     "TW": {
@@ -121105,10 +121105,10 @@
       "source": "timatic_api"
     },
     "CN": {
-      "requirement_type": "visa_free",
+      "requirement_type": "visa_required",
       "duration_days": null,
-      "notes": "Passengers must have a valid visa issued by China (People's Rep.).Passengers with a Mainland Travel Permit for Hong Kong and Macao Residents (Hui Xiang Zheng, credit-card format) do not need a visa. D",
-      "confidence": 0.95,
+      "notes": "[HARDCODED FIX] Hong Kong \u2192 China (requires Mainland Travel Permit / \u56de\u4e61\u8bc1). Passengers must have a valid visa issued by China (People's Rep.).Passengers with a Mainland Travel Permit for Hong Kong and Macao Residents (Hui Xiang Zheng, credit-card format) do not need a visa. D",
+      "confidence": 0.99,
       "source": "timatic_api"
     },
     "JP": {
@@ -121420,10 +121420,10 @@
       "source": "timatic_api"
     },
     "MO": {
-      "requirement_type": "visa_free",
+      "requirement_type": "visa_required",
       "duration_days": 7,
-      "notes": "Passengers with a Hong Kong (SAR China) passport do not need a visa for a maximum of 7 days if:- in transit from Hong Kong (SAR China) to a third country or- in transit from a third country to Hong Ko",
-      "confidence": 0.95,
+      "notes": "[HARDCODED FIX] Hong Kong \u2192 Macau (requires exit/entry permit). Passengers with a Hong Kong (SAR China) passport do not need a visa for a maximum of 7 days if:- in transit from Hong Kong (SAR China) to a third country or- in transit from a third country to Hong Ko",
+      "confidence": 0.99,
       "source": "timatic_api"
     },
     "TW": {
@@ -171577,10 +171577,10 @@
       "source": "timatic_api"
     },
     "CN": {
-      "requirement_type": "visa_free",
+      "requirement_type": "visa_required",
       "duration_days": null,
-      "notes": "Passengers must have a valid visa issued by China (People's Rep.).Passengers with a Mainland Travel Permit for Hong Kong and Macao Residents (Hui Xiang Zheng, credit-card format) do not need a visa. D",
-      "confidence": 0.95,
+      "notes": "[HARDCODED FIX] Macau \u2192 China (requires Mainland Travel Permit / \u56de\u4e61\u8bc1). Passengers must have a valid visa issued by China (People's Rep.).Passengers with a Mainland Travel Permit for Hong Kong and Macao Residents (Hui Xiang Zheng, credit-card format) do not need a visa. D",
+      "confidence": 0.99,
       "source": "timatic_api"
     },
     "JP": {
@@ -171647,10 +171647,10 @@
       "source": "timatic_api"
     },
     "HK": {
-      "requirement_type": "visa_free",
+      "requirement_type": "visa_required",
       "duration_days": 7,
-      "notes": "Passengers with a Macao (SAR China) passport do not need a visa for a maximum of 7 days.",
-      "confidence": 0.95,
+      "notes": "[HARDCODED FIX] Macau \u2192 Hong Kong (requires exit/entry permit). Passengers with a Macao (SAR China) passport do not need a visa for a maximum of 7 days.",
+      "confidence": 0.99,
       "source": "timatic_api"
     },
     "PH": {

@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Travel Freedom Index (TFI) - Measuring Global Passport Power Through Diplomatic Reciprocity',
-  description: 'Discover passport rankings based on visa-free travel and diplomatic reciprocity. Compare 207 passports across 201 countries using our Travel Freedom Index (TFI) and Reciprocity-Adjusted Travel Freedom Index (RATFI).',
+  description: 'Discover passport rankings based on visa-free travel and diplomatic reciprocity. Compare 201 passports across 200 destinations using our Travel Freedom Index (TFI) and Reciprocity-Adjusted Travel Freedom Index (RATFI).',
   keywords: 'passport ranking, visa free travel, passport power, diplomatic reciprocity, travel freedom index, global mobility, TFI, RATFI',
   openGraph: {
     title: 'Travel Freedom Index - Measuring True Passport Power',

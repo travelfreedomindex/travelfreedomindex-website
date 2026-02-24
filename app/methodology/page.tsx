@@ -102,9 +102,9 @@ export default function MethodologyPage() {
               <h3 className="font-semibold text-gray-900 mb-3">Scoring Weights</h3>
               <ul className="space-y-2 text-gray-700">
                 <li><span className="font-mono bg-white px-2 py-1 rounded">1.0×</span> <strong>Visa-Free</strong> – Walk through immigration freely</li>
-                <li><span className="font-mono bg-white px-2 py-1 rounded">0.8×</span> <strong>Visa on Arrival</strong> – Minor hassle: queue, fees, paperwork at border</li>
-                <li><span className="font-mono bg-white px-2 py-1 rounded">0.7×</span> <strong>eTA/eVisa</strong> – Moderate friction: online application, waiting period, fees</li>
-                <li><span className="font-mono bg-white px-2 py-1 rounded">0.0×</span> <strong>Visa Required</strong> – Significant barrier: embassy visit, documentation, uncertainty</li>
+                <li><span className="font-mono bg-white px-2 py-1 rounded">0.7×</span> <strong>Visa on Arrival</strong> – Meaningful friction: queue, fees, possible denial at the border</li>
+                <li><span className="font-mono bg-white px-2 py-1 rounded">0.5×</span> <strong>eTA/eVisa</strong> – Significant barrier: online pre-approval, government screening, possible refusal before travel</li>
+                <li><span className="font-mono bg-white px-2 py-1 rounded">0.0×</span> <strong>Visa Required</strong> – Full embassy process: documentation, waiting, uncertainty</li>
               </ul>
             </div>
 
@@ -327,7 +327,7 @@ export default function MethodologyPage() {
               <li className="flex items-start gap-3">
                 <span className="text-purple-600 mt-1 font-bold">•</span>
                 <div>
-                  <strong>Weighting Methodology:</strong> Visa-on-arrival (0.8×) and eTA/eVisa (0.7×) are weighted lower than visa-free (1.0×) to reflect the friction and uncertainty of border processing.
+                  <strong>Weighting Methodology:</strong> Visa-on-arrival (0.7×) and eTA/eVisa (0.5×) are weighted lower than visa-free (1.0×) to reflect the friction and uncertainty of border processing.
                 </div>
               </li>
               <li className="flex items-start gap-3">

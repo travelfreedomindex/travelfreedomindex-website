@@ -122474,12 +122474,12 @@
       "source": "timatic_api+llm"
     },
     "HK": {
-      "requirement_type": "visa_free",
-      "raw_requirement_type": null,
+      "requirement_type": "visa_required",
+      "raw_requirement_type": "visa_free",
       "duration_days": 7,
-      "notes": "Transit exemption available (NOT visa-free entry) | Passengers must have a valid visa issued by Hong Kong (SAR China).Passengers with a Hong Kong (SAR China) passport do not need a visa.Passengers with a Re-entry Permit issued by Hong Kong (SAR China",
+      "notes": "[HARDCODED] Mainland Chinese passport holders need Exit-Entry Permit (\u6e2f\u6fb3\u901a\u884c\u8bc1), not a standard visa. Regular CN passport alone is NOT sufficient for HK entry. | Original notes: Transit exemption available (NOT visa-free entry) | Passengers must have a valid visa issued by Hong Kong (SAR China).Passengers with a Hong Kong (SAR China) passport do not need a visa.Passengers with a Re-entry Permit issued by Hong Kong (SAR China",
       "confidence": 0.95,
-      "source": "timatic_api+llm"
+      "source": "hardcoded_override"
     },
     "PH": {
       "requirement_type": "visa_free",
@@ -138432,12 +138432,12 @@
       "source": "timatic_api+llm"
     },
     "CN": {
-      "requirement_type": "visa_on_arrival",
-      "raw_requirement_type": null,
+      "requirement_type": "visa_required",
+      "raw_requirement_type": "visa_on_arrival",
       "duration_days": null,
-      "notes": "Passengers must have a valid visa issued by China (People's Rep.).Passengers with a Mainland Travel Permit for Hong Kong and Macao Residents (Hui Xiang Zheng, credit-card format) do not need a visa. D",
+      "notes": "[HARDCODED] HK SAR passport holders need Mainland Travel Permit (\u56de\u4e61\u8bc1 / MTL) obtained in advance \u2014 not issued at the border. Regular HK passport alone insufficient. | Original notes: Passengers must have a valid visa issued by China (People's Rep.).Passengers with a Mainland Travel Permit for Hong Kong and Macao Residents (Hui Xiang Zheng, credit-card format) do not need a visa. D",
       "confidence": 0.95,
-      "source": "timatic_api+llm"
+      "source": "hardcoded_override"
     },
     "JP": {
       "requirement_type": "visa_free",
@@ -196116,12 +196116,12 @@
       "source": "timatic_api+llm"
     },
     "CN": {
-      "requirement_type": "visa_on_arrival",
-      "raw_requirement_type": null,
+      "requirement_type": "visa_required",
+      "raw_requirement_type": "visa_on_arrival",
       "duration_days": null,
-      "notes": "Passengers must have a valid visa issued by China (People's Rep.).Passengers with a Mainland Travel Permit for Hong Kong and Macao Residents (Hui Xiang Zheng, credit-card format) do not need a visa. D",
+      "notes": "[HARDCODED] Macau SAR passport holders need Mainland Travel Permit (\u56de\u4e61\u8bc1 / MTL) obtained in advance \u2014 not issued at the border. Regular MO passport alone insufficient. | Original notes: Passengers must have a valid visa issued by China (People's Rep.).Passengers with a Mainland Travel Permit for Hong Kong and Macao Residents (Hui Xiang Zheng, credit-card format) do not need a visa. D",
       "confidence": 0.95,
-      "source": "timatic_api+llm"
+      "source": "hardcoded_override"
     },
     "JP": {
       "requirement_type": "visa_free",
@@ -197798,12 +197798,12 @@
       "source": "timatic_api+llm"
     },
     "HK": {
-      "requirement_type": "visa_on_arrival",
-      "raw_requirement_type": null,
+      "requirement_type": "eta_required",
+      "raw_requirement_type": "visa_on_arrival",
       "duration_days": 30,
-      "notes": "Passengers must have a valid visa issued by Hong Kong (SAR China).Passengers with a printed Notification Slip for Pre-arrival Registration for Taiwan Residents (PAR) do not need a visa for a maximum o",
+      "notes": "[HARDCODED] Taiwan residents need PAR (Pre-arrival Registration) Notification Slip from HK Immigration Dept before travel \u2014 free online application, similar to eTA/ESTA. Not issuable at the border. | Original notes: Passengers must have a valid visa issued by Hong Kong (SAR China).Passengers with a printed Notification Slip for Pre-arrival Registration for Taiwan Residents (PAR) do not need a visa for a maximum o",
       "confidence": 0.95,
-      "source": "timatic_api+llm"
+      "source": "hardcoded_override"
     },
     "PH": {
       "requirement_type": "visa_free",
